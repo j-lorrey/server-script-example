@@ -35,7 +35,11 @@ config = load_config()
 pat_path = config["pat_path"]
 server_url = config["server_url"]
 
-run_cmd = generate_run_cmd(pat_path, server_url)
+if server_url != "":
+    run_cmd = generate_run_cmd(pat_path, server_url)
 
-proc = subprocess.Popen(run_cmd, shell=False)
-print(f"Analysis submitted to {server_url}")
+    proc = subprocess.Popen(run_cmd, shell=False)
+    print(f"Analysis submitted to {server_url}")
+
+else:
+    print("** ERROR ** Please configure a valid server_url in config.yml and try again.")
