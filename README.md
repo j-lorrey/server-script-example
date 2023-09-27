@@ -54,4 +54,4 @@ Finished analysis finalization script
 
 ## Notes:
 - I haven't messed around with datapoint scripts as much, other than confirming they created the expected logs on the worker pods, so I will exclude those from the debugging.
-- Note that 'example-job' is a manual job configured to run with server scripts. In PAT you can only configure algorithmic jobs to have server scripts, so I couldn't test this same job there. I have not done extensive testing in PAT, but I ran these server scripts from PAT and found that they worked as expected (no double runs).
+- Note that 'example-job' is a manual job configured to run with server scripts. In PAT you can only configure algorithmic jobs to have server scripts, so I couldn't test this same job there. I have not done extensive testing in PAT, but I ran these server scripts with an algorithmic job in PAT and found that they worked as expected (no double runs).
