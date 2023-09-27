@@ -1,0 +1,1996 @@
+{
+    "analysis": {
+        "display_name": "example-job",
+        "name": "example-job",
+        "output_variables": [],
+        "problem": {
+            "workflow": [
+                {
+                    "name": "replace_weather_file",
+                    "display_name": "ReplaceWeatherFile",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ReplaceWeatherFile",
+                    "measure_definition_directory": "./measures/replace_weather_file",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\replace_weather_file",
+                    "measure_definition_display_name": "ReplaceWeatherFile",
+                    "measure_definition_name": "replace_weather_file",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "245591c2-0fd4-4ec8-9003-4b9e48209349",
+                    "measure_definition_version_uuid": "e4cba99b-e204-4bb8-b3f6-c90c2166347b",
+                    "uuid": "245591c2-0fd4-4ec8-9003-4b9e48209349",
+                    "version_uuid": "e4cba99b-e204-4bb8-b3f6-c90c2166347b",
+                    "description": "Sets the EPW weather file (EPW), supplemental data specific to the location, and daylight saving time start/end dates.",
+                    "taxonomy": "Envelope.Form",
+                    "arguments": [
+                        {
+                            "display_name": "Weather Directory",
+                            "display_name_short": "weather_directory",
+                            "name": "weather_directory",
+                            "value_type": "string",
+                            "default_value": "./resources",
+                            "value": "./resources"
+                        },
+                        {
+                            "display_name": "Weather File",
+                            "display_name_short": "weather_file_name",
+                            "name": "weather_file_name",
+                            "value_type": "string",
+                            "default_value": "VT_BURLINGTON-IAP_726170_TY3A.epw",
+                            "value": "VT_BURLINGTON-IAP_726170_TY3A.epw"
+                        },
+                        {
+                            "display_name": "Daylight Saving Start Date",
+                            "display_name_short": "dst_start_date",
+                            "name": "dst_start_date",
+                            "value_type": "string",
+                            "default_value": "NA",
+                            "value": "NA"
+                        },
+                        {
+                            "display_name": "Daylight Saving End Date",
+                            "display_name_short": "dst_end_date",
+                            "name": "dst_end_date",
+                            "value_type": "string",
+                            "default_value": "NA",
+                            "value": "NA"
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 0
+                },
+                {
+                    "name": "create_bar_from_space_type_ratios",
+                    "display_name": "Create Bar From Space Type Ratios",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "CreateBarFromSpaceTypeRatios",
+                    "measure_definition_directory": "./measures/create_bar_from_space_type_ratios",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\create_bar_from_space_type_ratios",
+                    "measure_definition_display_name": "Create Bar From Space Type Ratios",
+                    "measure_definition_name": "create_bar_from_space_type_ratios",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "3e988765-9673-46f8-9b65-99d5b86c2b22",
+                    "measure_definition_version_uuid": "29ef75fa-0a73-4a08-85bb-a421d8aebbf2",
+                    "uuid": "3e988765-9673-46f8-9b65-99d5b86c2b22",
+                    "version_uuid": "29ef75fa-0a73-4a08-85bb-a421d8aebbf2",
+                    "description": "Creates one or more rectangular building elements based on space type ratios of selected mix of building types, along with user arguments that describe the desired geometry characteristics.",
+                    "taxonomy": "Envelope.Form",
+                    "arguments": [
+                        {
+                            "display_name": "Target Standard",
+                            "display_name_short": "template",
+                            "name": "template",
+                            "value_type": "string",
+                            "default_value": "90.1-2004",
+                            "value": "90.1-2019"
+                        },
+                        {
+                            "display_name": "Space Type Ratios String",
+                            "display_name_short": "space_type_hash_string",
+                            "name": "space_type_hash_string",
+                            "value_type": "string",
+                            "default_value": "MediumOffice | Conference => 0.2, PrimarySchool | Corridor => 0.125, PrimarySchool | Classroom => 0.175, Warehouse | Office => 0.5",
+                            "value": "SmallOffice | WholeBuilding - Sm Office => 1.0"
+                        },
+                        {
+                            "display_name": "Total Building Floor Area",
+                            "display_name_short": "total_bldg_floor_area",
+                            "name": "total_bldg_floor_area",
+                            "value_type": "double",
+                            "default_value": 10000,
+                            "value": 10000
+                        },
+                        {
+                            "display_name": "Single Floor Area",
+                            "display_name_short": "single_floor_area",
+                            "name": "single_floor_area",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Typical Floor to Floor Height",
+                            "display_name_short": "floor_height",
+                            "name": "floor_height",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Enable Custom Height Bar Application",
+                            "display_name_short": "custom_height_bar",
+                            "name": "custom_height_bar",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Number of Stories Above Grade",
+                            "display_name_short": "num_stories_above_grade",
+                            "name": "num_stories_above_grade",
+                            "value_type": "double",
+                            "default_value": 1,
+                            "value": 1
+                        },
+                        {
+                            "display_name": "Number of Stories Below Grade",
+                            "display_name_short": "num_stories_below_grade",
+                            "name": "num_stories_below_grade",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Building Rotation",
+                            "display_name_short": "building_rotation",
+                            "name": "building_rotation",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Ratio of North/South Facade Length Relative to East/West Facade Length",
+                            "display_name_short": "ns_to_ew_ratio",
+                            "name": "ns_to_ew_ratio",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Perimeter Multiplier",
+                            "display_name_short": "perim_mult",
+                            "name": "perim_mult",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Bar Width",
+                            "display_name_short": "bar_width",
+                            "name": "bar_width",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Bar Separation Distance Multiplier",
+                            "display_name_short": "bar_sep_dist_mult",
+                            "name": "bar_sep_dist_mult",
+                            "value_type": "double",
+                            "default_value": 10,
+                            "value": 10
+                        },
+                        {
+                            "display_name": "Window to Wall Ratio",
+                            "display_name_short": "wwr",
+                            "name": "wwr",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Fraction of Exterior Wall Area with Adjacent Structure",
+                            "display_name_short": "party_wall_fraction",
+                            "name": "party_wall_fraction",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Number of North facing stories with party wall",
+                            "display_name_short": "party_wall_stories_north",
+                            "name": "party_wall_stories_north",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Number of South facing stories with party wall",
+                            "display_name_short": "party_wall_stories_south",
+                            "name": "party_wall_stories_south",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Number of East facing stories with party wall",
+                            "display_name_short": "party_wall_stories_east",
+                            "name": "party_wall_stories_east",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Number of West facing stories with party wall",
+                            "display_name_short": "party_wall_stories_west",
+                            "name": "party_wall_stories_west",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Is the Bottom Story Exposed to Ground",
+                            "display_name_short": "bottom_story_ground_exposed_floor",
+                            "name": "bottom_story_ground_exposed_floor",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Is the Top Story an Exterior Roof",
+                            "display_name_short": "top_story_exterior_exposed_roof",
+                            "name": "top_story_exterior_exposed_roof",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Calculation Method for Story Multiplier",
+                            "display_name_short": "story_multiplier",
+                            "name": "story_multiplier",
+                            "value_type": "string",
+                            "default_value": "Basements Ground Mid Top",
+                            "value": "Basements Ground Mid Top"
+                        },
+                        {
+                            "display_name": "Make Mid Story Floor Surfaces Adiabatic",
+                            "display_name_short": "make_mid_story_surfaces_adiabatic",
+                            "name": "make_mid_story_surfaces_adiabatic",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        },
+                        {
+                            "display_name": "Division Method for Bar Space Types",
+                            "display_name_short": "bar_division_method",
+                            "name": "bar_division_method",
+                            "value_type": "string",
+                            "default_value": "Multiple Space Types - Individual Stories Sliced",
+                            "value": "Multiple Space Types - Individual Stories Sliced"
+                        },
+                        {
+                            "display_name": "Double Loaded Corridor",
+                            "display_name_short": "double_loaded_corridor",
+                            "name": "double_loaded_corridor",
+                            "value_type": "string",
+                            "default_value": "Primary Space Type",
+                            "value": "Primary Space Type"
+                        },
+                        {
+                            "display_name": "Choose Space Type Sorting Method",
+                            "display_name_short": "space_type_sort_logic",
+                            "name": "space_type_sort_logic",
+                            "value_type": "string",
+                            "default_value": "Building Type > Size",
+                            "value": "Building Type > Size"
+                        },
+                        {
+                            "display_name": "Use Upstream Argument Values",
+                            "display_name_short": "use_upstream_args",
+                            "name": "use_upstream_args",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 1
+                },
+                {
+                    "name": "create_typical_building_from_model",
+                    "display_name": "Create Typical Building from Model",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "CreateTypicalBuildingFromModel",
+                    "measure_definition_directory": "./measures/create_typical_building_from_model",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\create_typical_building_from_model",
+                    "measure_definition_display_name": "Create Typical Building from Model",
+                    "measure_definition_name": "create_typical_building_from_model",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "339a2e3a-273c-4494-bb50-bfe586a0647c",
+                    "measure_definition_version_uuid": "a507c3a3-0133-49c8-aa11-ea5484098ba8",
+                    "uuid": "339a2e3a-273c-4494-bb50-bfe586a0647c",
+                    "version_uuid": "a507c3a3-0133-49c8-aa11-ea5484098ba8",
+                    "description": "Takes a model with space and stub space types, and assigns constructions, schedules, internal loads, hvac, and other loads such as exterior lights and service water heating.",
+                    "taxonomy": "Whole Building.Space Types",
+                    "arguments": [
+                        {
+                            "display_name": "Target Standard",
+                            "display_name_short": "template",
+                            "name": "template",
+                            "value_type": "string",
+                            "default_value": "90.1-2010",
+                            "value": "90.1-2019"
+                        },
+                        {
+                            "display_name": "HVAC System Type",
+                            "display_name_short": "system_type",
+                            "name": "system_type",
+                            "value_type": "string",
+                            "default_value": "Inferred",
+                            "value": "Baseboard gas boiler"
+                        },
+                        {
+                            "display_name": "HVAC System Delivery Type",
+                            "display_name_short": "hvac_delivery_type",
+                            "name": "hvac_delivery_type",
+                            "value_type": "string",
+                            "default_value": "Forced Air",
+                            "value": "Forced Air"
+                        },
+                        {
+                            "display_name": "HVAC Heating Source",
+                            "display_name_short": "htg_src",
+                            "name": "htg_src",
+                            "value_type": "string",
+                            "default_value": "NaturalGas",
+                            "value": "NaturalGas"
+                        },
+                        {
+                            "display_name": "HVAC Cooling Source",
+                            "display_name_short": "clg_src",
+                            "name": "clg_src",
+                            "value_type": "string",
+                            "default_value": "Electricity",
+                            "value": "Electricity"
+                        },
+                        {
+                            "display_name": "Service Water Heating Source",
+                            "display_name_short": "swh_src",
+                            "name": "swh_src",
+                            "value_type": "string",
+                            "default_value": "Inferred",
+                            "value": "Inferred"
+                        },
+                        {
+                            "display_name": "Kitchen Exhaust MakeUp Air Calculation Method",
+                            "display_name_short": "kitchen_makeup",
+                            "name": "kitchen_makeup",
+                            "value_type": "string",
+                            "default_value": "Adjacent",
+                            "value": "Adjacent"
+                        },
+                        {
+                            "display_name": "Exterior Lighting Zone",
+                            "display_name_short": "exterior_lighting_zone",
+                            "name": "exterior_lighting_zone",
+                            "value_type": "string",
+                            "default_value": "3 - All Other Areas",
+                            "value": "3 - All Other Areas"
+                        },
+                        {
+                            "display_name": "Add Constructions to Model",
+                            "display_name_short": "add_constructions",
+                            "name": "add_constructions",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Space Type Loads to Model",
+                            "display_name_short": "add_space_type_loads",
+                            "name": "add_space_type_loads",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Elevators to Model",
+                            "display_name_short": "add_elevators",
+                            "name": "add_elevators",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Internal Mass to Model",
+                            "display_name_short": "add_internal_mass",
+                            "name": "add_internal_mass",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Exterior Lights to Model",
+                            "display_name_short": "add_exterior_lights",
+                            "name": "add_exterior_lights",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Onsite Parking Fraction",
+                            "display_name_short": "onsite_parking_fraction",
+                            "name": "onsite_parking_fraction",
+                            "value_type": "double",
+                            "default_value": 1,
+                            "value": 1
+                        },
+                        {
+                            "display_name": "Add Exhaust Fans to Model",
+                            "display_name_short": "add_exhaust",
+                            "name": "add_exhaust",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Service Water Heating to Model",
+                            "display_name_short": "add_swh",
+                            "name": "add_swh",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Thermostats",
+                            "display_name_short": "add_thermostat",
+                            "name": "add_thermostat",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add HVAC System to Model",
+                            "display_name_short": "add_hvac",
+                            "name": "add_hvac",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Add Refrigeration to Model",
+                            "display_name_short": "add_refrigeration",
+                            "name": "add_refrigeration",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Modify weekday hours of operation",
+                            "display_name_short": "modify_wkdy_op_hrs",
+                            "name": "modify_wkdy_op_hrs",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        },
+                        {
+                            "display_name": "Weekday Operating Hours Start Time",
+                            "display_name_short": "wkdy_op_hrs_start_time",
+                            "name": "wkdy_op_hrs_start_time",
+                            "value_type": "double",
+                            "default_value": 8,
+                            "value": 8
+                        },
+                        {
+                            "display_name": "Weekday Operating Hours Duration",
+                            "display_name_short": "wkdy_op_hrs_duration",
+                            "name": "wkdy_op_hrs_duration",
+                            "value_type": "double",
+                            "default_value": 8,
+                            "value": 8
+                        },
+                        {
+                            "display_name": "Modify weekend hours of operation",
+                            "display_name_short": "modify_wknd_op_hrs",
+                            "name": "modify_wknd_op_hrs",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        },
+                        {
+                            "display_name": "Weekend Operating Hours Start Time",
+                            "display_name_short": "wknd_op_hrs_start_time",
+                            "name": "wknd_op_hrs_start_time",
+                            "value_type": "double",
+                            "default_value": 8,
+                            "value": 8
+                        },
+                        {
+                            "display_name": "Weekend Operating Hours Duration",
+                            "display_name_short": "wknd_op_hrs_duration",
+                            "name": "wknd_op_hrs_duration",
+                            "value_type": "double",
+                            "default_value": 8,
+                            "value": 8
+                        },
+                        {
+                            "display_name": "Unmet Hours Tolerance",
+                            "display_name_short": "unmet_hours_tolerance",
+                            "name": "unmet_hours_tolerance",
+                            "value_type": "double",
+                            "default_value": 1,
+                            "value": 1
+                        },
+                        {
+                            "display_name": "Clean Model of non-geometry objects",
+                            "display_name_short": "remove_objects",
+                            "name": "remove_objects",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Use Upstream Argument Values",
+                            "display_name_short": "use_upstream_args",
+                            "name": "use_upstream_args",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Enable Daylight Savings",
+                            "display_name_short": "enable_dst",
+                            "name": "enable_dst",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Climate Zone.",
+                            "display_name_short": "climate_zone",
+                            "name": "climate_zone",
+                            "value_type": "string",
+                            "default_value": "Lookup From Model",
+                            "value": "Lookup From Model"
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 2
+                },
+                {
+                    "name": "add_hourly_meters",
+                    "display_name": "Add Hourly Meters",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "AddHourlyMeters",
+                    "measure_definition_directory": "./measures/AddHourlyMeters",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\AddHourlyMeters",
+                    "measure_definition_display_name": "Add Hourly Meters",
+                    "measure_definition_name": "add_hourly_meters",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "2ee535a3-90cd-4f87-9bc8-bdf31b4d12b9",
+                    "measure_definition_version_uuid": "35ba2dc9-9c0e-4013-8bec-5b3cb2fe2609",
+                    "uuid": "2ee535a3-90cd-4f87-9bc8-bdf31b4d12b9",
+                    "version_uuid": "35ba2dc9-9c0e-4013-8bec-5b3cb2fe2609",
+                    "description": "This measure adds hourly meters for the most common energy use types.",
+                    "taxonomy": "Reporting.QAQC",
+                    "arguments": [],
+                    "variables": [],
+                    "workflow_index": 3
+                },
+                {
+                    "name": "increase_insulation_r_value_for_exterior_walls",
+                    "display_name": "Increase R-value of Insulation for Exterior Walls to a Specific Value",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "IncreaseInsulationRValueForExteriorWalls",
+                    "measure_definition_directory": "./measures/IncreaseInsulationRValueForExteriorWalls",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\IncreaseInsulationRValueForExteriorWalls",
+                    "measure_definition_display_name": "Increase R-value of Insulation for Exterior Walls to a Specific Value",
+                    "measure_definition_name": "increase_insulation_r_value_for_exterior_walls",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "3fdf9c39-d305-449b-a4b5-077166af5a67",
+                    "measure_definition_version_uuid": "5de9bc1f-8527-42dd-bf7d-610cbe35a397",
+                    "uuid": "3fdf9c39-d305-449b-a4b5-077166af5a67",
+                    "version_uuid": "5de9bc1f-8527-42dd-bf7d-610cbe35a397",
+                    "description": "Set the R-Value of exterior wall insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the exterior walls. Costs for a construction can be adjusted",
+                    "taxonomy": "Envelope.Opaque",
+                    "arguments": [
+                        {
+                            "display_name": "Allow both increase and decrease in wall R-value to reach requested target?",
+                            "display_name_short": "allow_reduction",
+                            "name": "allow_reduction",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Increase in Wall Material and Installation Costs for Construction per Area Used ($/ft^2).",
+                            "display_name_short": "material_cost_increase_ip",
+                            "name": "material_cost_increase_ip",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "One Time Retrofit Cost to Add Wall Insulation to Construction ($/ft^2).",
+                            "display_name_short": "one_time_retrofit_cost_ip",
+                            "name": "one_time_retrofit_cost_ip",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Year to Incur One Time Retrofit Cost (whole years).",
+                            "display_name_short": "years_until_retrofit_cost",
+                            "name": "years_until_retrofit_cost",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Wall Insulation R-value (ft^2*h*R/Btu).",
+                            "display_name_short": "wall_r_value",
+                            "name": "wall_r_value",
+                            "value_type": "double",
+                            "default_value": 13,
+                            "value": 13
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 4
+                },
+                {
+                    "name": "increase_insulation_r_value_for_roofs",
+                    "display_name": "Increase R-value of Insulation for Roofs to a Specific Value",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "IncreaseInsulationRValueForRoofs",
+                    "measure_definition_directory": "./measures/IncreaseInsulationRValueForRoofs",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\IncreaseInsulationRValueForRoofs",
+                    "measure_definition_display_name": "Increase R-value of Insulation for Roofs to a Specific Value",
+                    "measure_definition_name": "increase_insulation_r_value_for_roofs",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "65b798f4-207f-4aed-987a-386c865d0ccd",
+                    "measure_definition_version_uuid": "9763ecc5-ee8d-40be-b28e-97ad90cc4f6f",
+                    "uuid": "65b798f4-207f-4aed-987a-386c865d0ccd",
+                    "version_uuid": "9763ecc5-ee8d-40be-b28e-97ad90cc4f6f",
+                    "description": "Set the R-Value of roof insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the roof.",
+                    "taxonomy": "Envelope.Opaque",
+                    "arguments": [
+                        {
+                            "display_name": "Allow both increase and decrease in roof R-value to reach requested target?",
+                            "display_name_short": "allow_reduction",
+                            "name": "allow_reduction",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Increase in Roof Material and Installation Costs for Construction per Area Used ($/ft^2).",
+                            "display_name_short": "material_cost_increase_ip",
+                            "name": "material_cost_increase_ip",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "One Time Retrofit Cost to Add Roof Insulation to Construction ($/ft^2).",
+                            "display_name_short": "one_time_retrofit_cost_ip",
+                            "name": "one_time_retrofit_cost_ip",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Year to Incur One Time Retrofit Cost (whole years).",
+                            "display_name_short": "years_until_retrofit_cost",
+                            "name": "years_until_retrofit_cost",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Roof Insulation R-value (ft^2*h*R/Btu).",
+                            "display_name_short": "roof_r_value",
+                            "name": "roof_r_value",
+                            "value_type": "double",
+                            "default_value": 30,
+                            "value": 13
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 5
+                },
+                {
+                    "name": "set_lighting_loads_by_lpd",
+                    "display_name": "Set Lighting Loads by LPD",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "SetLightingLoadsByLPD",
+                    "measure_definition_directory": "./measures/SetLightingLoadsByLPD",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\SetLightingLoadsByLPD",
+                    "measure_definition_display_name": "Set Lighting Loads by LPD",
+                    "measure_definition_name": "set_lighting_loads_by_lpd",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "901c076e-02af-4bf4-a780-57391e7b1e2a",
+                    "measure_definition_version_uuid": "4ef1f876-6ccb-4a18-b4e2-15c5cf8b9216",
+                    "uuid": "901c076e-02af-4bf4-a780-57391e7b1e2a",
+                    "version_uuid": "4ef1f876-6ccb-4a18-b4e2-15c5cf8b9216",
+                    "description": "Set the lighting power density (W/ft^2) in the to a specified value for all spaces that have lights. This can be applied to the entire building or a specific space type. Cost can be added per floor area",
+                    "taxonomy": "Electric Lighting.Lighting Equipment",
+                    "arguments": [
+                        {
+                            "display_name": "Add lights to all spaces included in floor area, including spaces that did not originally include lights",
+                            "display_name_short": "add_instance_all_spaces",
+                            "name": "add_instance_all_spaces",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        },
+                        {
+                            "display_name": "Material and Installation Costs for Lights per Floor Area ($/ft^2).",
+                            "display_name_short": "material_cost",
+                            "name": "material_cost",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Demolition Costs for Lights per Floor Area ($/ft^2).",
+                            "display_name_short": "demolition_cost",
+                            "name": "demolition_cost",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Years Until Costs Start (whole years).",
+                            "display_name_short": "years_until_costs_start",
+                            "name": "years_until_costs_start",
+                            "value_type": "integer",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "Demolition Costs Occur During Initial Construction?",
+                            "display_name_short": "demo_cost_initial_const",
+                            "name": "demo_cost_initial_const",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        },
+                        {
+                            "display_name": "Expected Life (whole years).",
+                            "display_name_short": "expected_life",
+                            "name": "expected_life",
+                            "value_type": "integer",
+                            "default_value": 20,
+                            "value": 20
+                        },
+                        {
+                            "display_name": "O & M Costs for Lights per Floor Area ($/ft^2).",
+                            "display_name_short": "om_cost",
+                            "name": "om_cost",
+                            "value_type": "double",
+                            "default_value": 0,
+                            "value": 0
+                        },
+                        {
+                            "display_name": "O & M Frequency (whole years).",
+                            "display_name_short": "om_frequency",
+                            "name": "om_frequency",
+                            "value_type": "integer",
+                            "default_value": 1,
+                            "value": 1
+                        },
+                        {
+                            "display_name": "Lighting Power Density (W/ft^2)",
+                            "display_name_short": "lpd",
+                            "name": "lpd",
+                            "value_type": "double",
+                            "default_value": 1,
+                            "value": 0
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 6
+                },
+                {
+                    "name": "ashrae_9012010_daylighting_control_with_run_switch",
+                    "display_name": "ASHRAE 90.1-2010 Daylighting Control with run switch",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ASHRAE9012010DaylightingControlWithRunSwitch",
+                    "measure_definition_directory": "./measures/ASHRAE9012010DaylightingControlWithRunSwitch",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\ASHRAE9012010DaylightingControlWithRunSwitch",
+                    "measure_definition_display_name": "ASHRAE 90.1-2010 Daylighting Control with run switch",
+                    "measure_definition_name": "ashrae_9012010_daylighting_control_with_run_switch",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "3a663435-7210-42f8-b168-8487342a95b3",
+                    "measure_definition_version_uuid": "a7ac77f3-2e01-4bae-b883-f5c87e0aa6d4",
+                    "uuid": "3a663435-7210-42f8-b168-8487342a95b3",
+                    "version_uuid": "a7ac77f3-2e01-4bae-b883-f5c87e0aa6d4",
+                    "description": "This measure adds automatic daylighting controls for Primary Sidelighted Areas and Toplighting according to ASHRAE 90.1-2010 sections 9.4.1.4 and 9.4.1.5.",
+                    "taxonomy": "Electric Lighting.Electric Lighting Controls",
+                    "arguments": [],
+                    "variables": [
+                        {
+                            "argument": {
+                                "display_name": "Apply Daylighting",
+                                "display_name_short": "run_lightingcontrol",
+                                "name": "run_lightingcontrol",
+                                "value_type": "boolean",
+                                "default_value": true,
+                                "value": false
+                            },
+                            "display_name": "Apply Daylighting",
+                            "display_name_short": "run_lightingcontrol",
+                            "variable_type": "variable",
+                            "units": "",
+                            "minimum": 1,
+                            "maximum": 1,
+                            "static_value": false,
+                            "uuid": "",
+                            "version_uuid": "",
+                            "variable": true,
+                            "uncertainty_description": {
+                                "type": "discrete",
+                                "attributes": [
+                                    {
+                                        "name": "discrete",
+                                        "values_and_weights": [
+                                            {
+                                                "value": false,
+                                                "weight": 0.3333333333333333
+                                            },
+                                            {
+                                                "value": true,
+                                                "weight": 0.3333333333333333
+                                            },
+                                            {
+                                                "value": true,
+                                                "weight": 0.3333333333333333
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "lower_bounds",
+                                        "value": false
+                                    },
+                                    {
+                                        "name": "upper_bounds",
+                                        "value": true
+                                    },
+                                    {
+                                        "name": "modes",
+                                        "value": null
+                                    },
+                                    {
+                                        "name": "delta_x",
+                                        "value": null
+                                    },
+                                    {
+                                        "name": "stddev",
+                                        "value": null
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "workflow_index": 7
+                },
+                {
+                    "name": "controls_hwst_reset",
+                    "display_name": "Controls_HWSTReset",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ControlsHWSTReset",
+                    "measure_definition_directory": "./measures/controls_hwst_reset",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\controls_hwst_reset",
+                    "measure_definition_display_name": "Controls_HWSTReset",
+                    "measure_definition_name": "controls_hwst_reset",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "e61de1d5-fc20-49a5-b104-f390cd96d625",
+                    "measure_definition_version_uuid": "4437d62b-bd1e-4aab-9023-52e0f47ba91a",
+                    "uuid": "e61de1d5-fc20-49a5-b104-f390cd96d625",
+                    "version_uuid": "4437d62b-bd1e-4aab-9023-52e0f47ba91a",
+                    "description": "This energy efficiency measure (EEM) adds a set point reset to all hot water loops present in the OpenStudio model. The hot water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) lowers from 60F (15.6C) down to 20F (-6.67C), the hot water supply temperature set point will increase from 160F (71.1C) up to 180F (82.2C).  This sequence provides a 20F (11.1C) change in the Hot Water Set Point, over a 40F (22.2C) temperature change in the OAT. This sequence assumes all boilers serving the hot water plant loops are non-condensing and should not receive return water below 140F (60.0C).",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Apply HWST Reset",
+                            "display_name_short": "run_measure_hwstr",
+                            "name": "run_measure_hwstr",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 8
+                },
+                {
+                    "name": "controls_hwpdp_reset",
+                    "display_name": "Controls_HW P dP Reset",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ControlsHWPDPReset",
+                    "measure_definition_directory": "./measures/controls_hwpdp_reset",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\controls_hwpdp_reset",
+                    "measure_definition_display_name": "Controls_HW P dP Reset",
+                    "measure_definition_name": "controls_hwpdp_reset",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "b6e2b092-0417-45be-a420-6c5e13d673c0",
+                    "measure_definition_version_uuid": "19ccc6e0-d3f1-40f6-a373-9521c7a97e02",
+                    "uuid": "b6e2b092-0417-45be-a420-6c5e13d673c0",
+                    "version_uuid": "19ccc6e0-d3f1-40f6-a373-9521c7a97e02",
+                    "description": "This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary hot water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional hot water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary hot water pump motor for longer periods of time at lower energy consumptive levels.",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Apply HWPdP Reset",
+                            "display_name_short": "run_measure_hwpdpr",
+                            "name": "run_measure_hwpdpr",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 9
+                },
+                {
+                    "name": "controls_chwst_reset",
+                    "display_name": "Controls_CHWSTReset",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ControlsCHWSTReset",
+                    "measure_definition_directory": "./measures/controls_chwst_reset",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\controls_chwst_reset",
+                    "measure_definition_display_name": "Controls_CHWSTReset",
+                    "measure_definition_name": "controls_chwst_reset",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "86ef1c1e-20cd-4b8d-9fb0-b6f9c2da1d10",
+                    "measure_definition_version_uuid": "63481b19-9cbf-4a0e-8419-98e96778105a",
+                    "uuid": "86ef1c1e-20cd-4b8d-9fb0-b6f9c2da1d10",
+                    "version_uuid": "63481b19-9cbf-4a0e-8419-98e96778105a",
+                    "description": "This energy efficiency measure (EEM) adds a set point reset to all chilled water loops present in the OpenStudio model. The chilled water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) rises from 60F (15.6C) up to 100F (37.8C), the chilled water supply temperature set point will decrease from 55F (12.8C) down to 45F (7.22C).  This sequence provides a 10F (15.6C) change in the Chilled Water Set Point, over a 40F (22.2C) temperature change in the OAT. ",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Apply CHWST Reset",
+                            "display_name_short": "run_measure_chwstr",
+                            "name": "run_measure_chwstr",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 10
+                },
+                {
+                    "name": "controls_chwpdp_reset",
+                    "display_name": "Controls_CHW P dP Reset",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ControlsCHWPDPReset",
+                    "measure_definition_directory": "./measures/controls_chwpdp_reset",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\controls_chwpdp_reset",
+                    "measure_definition_display_name": "Controls_CHW P dP Reset",
+                    "measure_definition_name": "controls_chwpdp_reset",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "09d3f43a-37e2-49ab-9c5c-0692d73eb70f",
+                    "measure_definition_version_uuid": "7b2be833-9014-4826-bfc1-6ba4bc23cc93",
+                    "uuid": "09d3f43a-37e2-49ab-9c5c-0692d73eb70f",
+                    "version_uuid": "7b2be833-9014-4826-bfc1-6ba4bc23cc93",
+                    "description": "This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary chilled water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional chilled water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary chilled water pump motor for longer periods of time at lower energy consumptive levels.",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Apply CHWPdP Reset",
+                            "display_name_short": "run_measure_chwpdp",
+                            "name": "run_measure_chwpdp",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 11
+                },
+                {
+                    "name": "controls_satoa_reset",
+                    "display_name": "Controls_SAT OA Reset",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ControlsSATOAReset",
+                    "measure_definition_directory": "./measures/controls_satoa_reset",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\controls_satoa_reset",
+                    "measure_definition_display_name": "Controls_SAT OA Reset",
+                    "measure_definition_name": "controls_satoa_reset",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "3d911614-7d46-4aa5-9c47-0d9f4712fa9d",
+                    "measure_definition_version_uuid": "2b92aec7-d01e-4012-b145-c6f540553f0b",
+                    "uuid": "3d911614-7d46-4aa5-9c47-0d9f4712fa9d",
+                    "version_uuid": "2b92aec7-d01e-4012-b145-c6f540553f0b",
+                    "description": "Some buildings use a constant supply-air (also referred to discharge-air) temperature set point of 55F. When a building's supply fan system is operational, the supply-air temperature set point value should be automatically adjusting to internal/external conditions that will allow the supply fan to operate more efficiently. The simplest way to implement this strategy is to raise supply-air temperature when the outdoor air is cold and the building is less likely to need cooling.  Supplying this warmer air to the  terminals decreases the amount of reheat necessary at the terminal, saving heating energy.",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Apply SATOA Reset",
+                            "display_name_short": "run_measure_satoar",
+                            "name": "run_measure_satoar",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 12
+                },
+                {
+                    "name": "controls_fanpressure_reset",
+                    "display_name": "controls_fanpressure_reset",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "ControlsFanpressureReset",
+                    "measure_definition_directory": "./measures/controls_fanpressure_reset",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\controls_fanpressure_reset",
+                    "measure_definition_display_name": "controls_fanpressure_reset",
+                    "measure_definition_name": "controls_fanpressure_reset",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "1c35523c-71d0-4bd9-bae0-92c42edd8e5b",
+                    "measure_definition_version_uuid": "5ad8c668-9c64-4dea-a597-0976c4612e05",
+                    "uuid": "1c35523c-71d0-4bd9-bae0-92c42edd8e5b",
+                    "version_uuid": "5ad8c668-9c64-4dea-a597-0976c4612e05",
+                    "description": "This measure changes the variable speed fan coefficients to model fan systems with different characteristics and static pressure reset controls.\n\nCopies the NREL measure Change Variable Volume Fan Coefficients",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Choose an Variable Volume Fan to change coefficients.",
+                            "display_name_short": "fan_choice",
+                            "name": "fan_choice",
+                            "value_type": "string",
+                            "default_value": "{00000000-0000-0000-0000-000000000000}",
+                            "value": "{00000000-0000-0000-0000-000000000000}"
+                        },
+                        {
+                            "display_name": "Choose fan coefficient set to use:",
+                            "display_name_short": "coeff_choice",
+                            "name": "coeff_choice",
+                            "value_type": "string",
+                            "default_value": "Multi zone VAV with static pressure reset",
+                            "value": "Multi zone VAV with static pressure reset"
+                        },
+                        {
+                            "display_name": "Skip controls_fanpressure_reset",
+                            "display_name_short": "Skip entire measure",
+                            "name": "__SKIP__",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        },
+                        {
+                            "display_name": "Apply Fanpressure Reset",
+                            "display_name_short": "run_measure_sfreset",
+                            "name": "run_measure_sfreset",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 13
+                },
+                {
+                    "name": "enable_economizer_control_with_diffs",
+                    "display_name": "Enable Economizer Control_withDiffs",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "EnableEconomizerControlWithDiffs",
+                    "measure_definition_directory": "./measures/EnableEconomizerControlWithDiffs",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\EnableEconomizerControlWithDiffs",
+                    "measure_definition_display_name": "Enable Economizer Control_withDiffs",
+                    "measure_definition_name": "enable_economizer_control_with_diffs",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "449d66a8-84b7-4db6-b675-98af69dd381e",
+                    "measure_definition_version_uuid": "3f073b26-0acd-4d49-8484-27ad51f9b29d",
+                    "uuid": "449d66a8-84b7-4db6-b675-98af69dd381e",
+                    "version_uuid": "3f073b26-0acd-4d49-8484-27ad51f9b29d",
+                    "description": "There is currently not a functioning air side economizer enabled in the building. Air side economizers use cold outside air to either assist the mechanical cooling system, or if the air is cold enough, provide all of the cooling for a facility.\n\n\n\n\n\n\n\n\n\nIn order for an air side economizer to function properly, all of the outside air damper actuators need to have modulating capabilities. In addition to that, new control sequences need to be written into the building automation control system to enable the air-side economizer when outside air temperatures are below 60?F-65?F and the interior space temperatures are calling for cooling.\n\n\n\n\n\n\n\n\n\nThe building would realize the following operational benefits by utilizing an air-side economizer:\n\n\n\n\n    -Reduction in cooling system energy use\n\n\n\n\n    -Reduction in mechanical cooling system run time\n\n\n\n\n    -Possible improvement in indoor air quality\n\n\n\n\n  ",
+                    "taxonomy": "HVAC.Ventilation",
+                    "arguments": [
+                        {
+                            "display_name": "Economizer Maximum Limit Dry-Bulb Temperature (F).",
+                            "display_name_short": "econoMaxDryBulbTemp",
+                            "name": "econoMaxDryBulbTemp",
+                            "value_type": "double",
+                            "default_value": 69,
+                            "value": 69
+                        },
+                        {
+                            "display_name": "Economizer Minimum Limit Dry-Bulb Temperature (F).",
+                            "display_name_short": "econoMinDryBulbTemp",
+                            "name": "econoMinDryBulbTemp",
+                            "value_type": "double",
+                            "default_value": -148,
+                            "value": -148
+                        },
+                        {
+                            "display_name": "Economizer Control Type",
+                            "display_name_short": "economizer_type",
+                            "name": "economizer_type",
+                            "value_type": "string",
+                            "default_value": "NoEconomizer",
+                            "value": "NoChange",
+                            "choice_display_names": [
+                                "FixedDryBulb",
+                                "DifferentialDryBulb",
+                                "FixedEnthalpy",
+                                "DifferentialEnthalpy",
+                                "NoEconomizer",
+                                "NoChange"
+                            ]
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 14
+                },
+                {
+                    "name": "enable_demand_controlled_ventilation",
+                    "display_name": "Enable Demand Controlled Ventilation",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "EnableDemandControlledVentilation",
+                    "measure_definition_directory": "./measures/EnableDemandControlledVentilation",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\EnableDemandControlledVentilation",
+                    "measure_definition_display_name": "Enable Demand Controlled Ventilation",
+                    "measure_definition_name": "enable_demand_controlled_ventilation",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "3ff4b412-8689-4b11-a588-935c621dc97d",
+                    "measure_definition_version_uuid": "30f619d1-f447-4e19-aa18-9d266faf125e",
+                    "uuid": "3ff4b412-8689-4b11-a588-935c621dc97d",
+                    "version_uuid": "30f619d1-f447-4e19-aa18-9d266faf125e",
+                    "description": "The facility currently does not have a demand controlled ventilation system or CO2 sensors in the air delivery system. Outside air is introduced and conditioned at a fixed rate based on the maximum design. Since the building occupancy fluctuates and is often less than the maximum design occupancy, it is being over-ventilated and consuming more energy than necessary. The building CO2 level is closely related to the occupancy. The typical outside CO2 level is relatively low concentration, around 400 to 500 ppm, and is used to dilute the higher indoor CO2 levels.\rDemand controlled ventilation could be implemented by deploying CO2 sensors located in each AHU return air duct and in densely occupied spaces, such as conference rooms. Implementation of this ECM will require:\r-Rebalance the open/closed outside air dampers to a lower minimum ventilation rate.\r-Program demand ventilation controls into each AHU, controlling modulating dampers in mixed air AHUs and VFDs in outside air units. Ventilation will be generally controlled from return air sensors, but will be increased as needed based on densely occupied space sensors.\r-Commission the project.",
+                    "taxonomy": "HVAC.Ventilation",
+                    "arguments": [
+                        {
+                            "display_name": "DCV Type",
+                            "display_name_short": "dcv_type",
+                            "name": "dcv_type",
+                            "value_type": "string",
+                            "default_value": "DisableDCV",
+                            "value": "NoChange",
+                            "choice_display_names": [
+                                "EnableDCV",
+                                "DisableDCV",
+                                "NoChange"
+                            ]
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 15
+                },
+                {
+                    "name": "customize_prototype_tstats",
+                    "display_name": "customize_prototype_Tstats",
+                    "measure_type": "RubyMeasure",
+                    "measure_definition_class_name": "CustomizePrototypeTstats",
+                    "measure_definition_directory": "./measures/customize_prototype_tstats",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\customize_prototype_tstats",
+                    "measure_definition_display_name": "customize_prototype_Tstats",
+                    "measure_definition_name": "customize_prototype_tstats",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "1dea6006-a616-49b6-85bd-ccaa1cc7cb60",
+                    "measure_definition_version_uuid": "cb29dd2e-b467-4702-85bd-e8583ca1d363",
+                    "uuid": "1dea6006-a616-49b6-85bd-ccaa1cc7cb60",
+                    "version_uuid": "cb29dd2e-b467-4702-85bd-e8583ca1d363",
+                    "description": "A measure to inspect and edit the prototypical Tstat schedules for the OS Control Tool at VEIC",
+                    "taxonomy": "HVAC.HVAC Controls",
+                    "arguments": [
+                        {
+                            "display_name": "Cooling Setpoint",
+                            "display_name_short": "clg_setpoint",
+                            "name": "clg_setpoint",
+                            "value_type": "double",
+                            "default_value": 73.2,
+                            "value": 73.2
+                        },
+                        {
+                            "display_name": "Heating Setpoint",
+                            "display_name_short": "htg_setpoint",
+                            "name": "htg_setpoint",
+                            "value_type": "double",
+                            "default_value": 68,
+                            "value": 68
+                        },
+                        {
+                            "display_name": "A swtich to turn off cooling",
+                            "display_name_short": "cooling_bool",
+                            "name": "cooling_bool",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        }
+                    ],
+                    "variables": [
+                        {
+                            "argument": {
+                                "display_name": "Setback",
+                                "display_name_short": "setback",
+                                "name": "setback",
+                                "value_type": "double",
+                                "default_value": 5,
+                                "value": 5
+                            },
+                            "display_name": "Setback",
+                            "display_name_short": "setback",
+                            "variable_type": "variable",
+                            "units": "",
+                            "minimum": 1,
+                            "maximum": 1,
+                            "static_value": 5,
+                            "uuid": "",
+                            "version_uuid": "",
+                            "variable": true,
+                            "uncertainty_description": {
+                                "type": "discrete",
+                                "attributes": [
+                                    {
+                                        "name": "discrete",
+                                        "values_and_weights": [
+                                            {
+                                                "value": 5,
+                                                "weight": 0.3333333333333333
+                                            },
+                                            {
+                                                "value": 5,
+                                                "weight": 0.3333333333333333
+                                            },
+                                            {
+                                                "value": 8,
+                                                "weight": 0.3333333333333333
+                                            }
+                                        ]
+                                    },
+                                    {
+                                        "name": "lower_bounds",
+                                        "value": 5
+                                    },
+                                    {
+                                        "name": "upper_bounds",
+                                        "value": 8
+                                    },
+                                    {
+                                        "name": "modes",
+                                        "value": null
+                                    },
+                                    {
+                                        "name": "delta_x",
+                                        "value": null
+                                    },
+                                    {
+                                        "name": "stddev",
+                                        "value": null
+                                    }
+                                ]
+                            }
+                        }
+                    ],
+                    "workflow_index": 16
+                },
+                {
+                    "name": "coincident_peak_loadshape",
+                    "display_name": "Coincident Peak Loadshape",
+                    "measure_type": "EnergyPlusMeasure",
+                    "measure_definition_class_name": "CoincidentPeakLoadshape",
+                    "measure_definition_directory": "./measures/coincident_peak_loadshape",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\coincident_peak_loadshape",
+                    "measure_definition_display_name": "Coincident Peak Loadshape",
+                    "measure_definition_name": "coincident_peak_loadshape",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "81081957-3bd7-4262-b73b-3b347e87be0e",
+                    "measure_definition_version_uuid": "4ed9be58-b3f3-4bc2-abf8-01d3e3121c59",
+                    "uuid": "81081957-3bd7-4262-b73b-3b347e87be0e",
+                    "version_uuid": "4ed9be58-b3f3-4bc2-abf8-01d3e3121c59",
+                    "description": "This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory.",
+                    "taxonomy": "Economics.Life Cycle Cost Analysis",
+                    "arguments": [
+                        {
+                            "display_name": "Select a Tariff for ElectricityPurchased:Facility.",
+                            "display_name_short": "ElectricityPurchased:Facility",
+                            "name": "ElectricityPurchased:Facility",
+                            "value_type": "string",
+                            "default_value": "DC_coincident_peak",
+                            "value": "DC_coincident_peak"
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 17
+                },
+                {
+                    "name": "energy_savings_loadshape",
+                    "display_name": "Energy Savings Loadshape",
+                    "measure_type": "EnergyPlusMeasure",
+                    "measure_definition_class_name": "EnergySavingsLoadshape",
+                    "measure_definition_directory": "./measures/energy_savings_loadshape",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\energy_savings_loadshape",
+                    "measure_definition_display_name": "Energy Savings Loadshape",
+                    "measure_definition_name": "energy_savings_loadshape",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "3e41ff86-b548-45bc-a3bf-6758f05219f5",
+                    "measure_definition_version_uuid": "21ff85e4-b865-4300-90ed-1a174e404dae",
+                    "uuid": "3e41ff86-b548-45bc-a3bf-6758f05219f5",
+                    "version_uuid": "21ff85e4-b865-4300-90ed-1a174e404dae",
+                    "description": "This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory.",
+                    "taxonomy": "Economics.Life Cycle Cost Analysis",
+                    "arguments": [
+                        {
+                            "display_name": "Select a Tariff for ElectricityPurchased:Facility.",
+                            "display_name_short": "ElectricityPurchased:Facility",
+                            "name": "ElectricityPurchased:Facility",
+                            "value_type": "string",
+                            "default_value": "DC_energy_loadshape",
+                            "value": "DC_energy_loadshape"
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 18
+                },
+                {
+                    "name": "openstudio_results",
+                    "display_name": "OpenStudio Results",
+                    "measure_type": "ReportingMeasure",
+                    "measure_definition_class_name": "OpenStudioResults",
+                    "measure_definition_directory": "./measures/openstudio_results",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\openstudio_results",
+                    "measure_definition_display_name": "OpenStudio Results",
+                    "measure_definition_name": "openstudio_results",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "a25386cd-60e4-46bc-8b11-c755f379d916",
+                    "measure_definition_version_uuid": "150901c6-5a01-4b2d-94b8-ebb1204e84b5",
+                    "uuid": "a25386cd-60e4-46bc-8b11-c755f379d916",
+                    "version_uuid": "150901c6-5a01-4b2d-94b8-ebb1204e84b5",
+                    "description": "This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data.",
+                    "taxonomy": "Reporting.QAQC",
+                    "arguments": [
+                        {
+                            "display_name": "Which Unit System do you want to use?",
+                            "display_name_short": "units",
+                            "name": "units",
+                            "value_type": "string",
+                            "default_value": "IP",
+                            "value": "IP"
+                        },
+                        {
+                            "display_name": "Model Summary",
+                            "display_name_short": "building_summary_section",
+                            "name": "building_summary_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Annual Overview",
+                            "display_name_short": "annual_overview_section",
+                            "name": "annual_overview_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Monthly Overview",
+                            "display_name_short": "monthly_overview_section",
+                            "name": "monthly_overview_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Utility Bills/Rates",
+                            "display_name_short": "utility_bills_rates_section",
+                            "name": "utility_bills_rates_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Envelope Summary",
+                            "display_name_short": "envelope_section_section",
+                            "name": "envelope_section_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Space Type Breakdown",
+                            "display_name_short": "space_type_breakdown_section",
+                            "name": "space_type_breakdown_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Space Type Summary",
+                            "display_name_short": "space_type_details_section",
+                            "name": "space_type_details_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Interior Lighting Summary",
+                            "display_name_short": "interior_lighting_section",
+                            "name": "interior_lighting_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Plug Loads Summary",
+                            "display_name_short": "plug_loads_section",
+                            "name": "plug_loads_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Exterior Lighting",
+                            "display_name_short": "exterior_light_section",
+                            "name": "exterior_light_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Water Use Equipment",
+                            "display_name_short": "water_use_section",
+                            "name": "water_use_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "HVAC Load Profiles",
+                            "display_name_short": "hvac_load_profile",
+                            "name": "hvac_load_profile",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Zone Conditions",
+                            "display_name_short": "zone_condition_section",
+                            "name": "zone_condition_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Zone Overview",
+                            "display_name_short": "zone_summary_section",
+                            "name": "zone_summary_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Zone Equipment Detail",
+                            "display_name_short": "zone_equipment_detail_section",
+                            "name": "zone_equipment_detail_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Air Loops Detail",
+                            "display_name_short": "air_loops_detail_section",
+                            "name": "air_loops_detail_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Plant Loops Detail",
+                            "display_name_short": "plant_loops_detail_section",
+                            "name": "plant_loops_detail_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Outdoor Air",
+                            "display_name_short": "outdoor_air_section",
+                            "name": "outdoor_air_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Cash Flow",
+                            "display_name_short": "cost_summary_section",
+                            "name": "cost_summary_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Site and Source Summary",
+                            "display_name_short": "source_energy_section",
+                            "name": "source_energy_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Schedule Overview",
+                            "display_name_short": "schedules_overview_section",
+                            "name": "schedules_overview_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Measure Warnings",
+                            "display_name_short": "measure_warning_section",
+                            "name": "measure_warning_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        },
+                        {
+                            "display_name": "Report monthly fuel and enduse breakdown to registerValue",
+                            "display_name_short": "reg_monthly_details",
+                            "name": "reg_monthly_details",
+                            "value_type": "boolean",
+                            "default_value": false,
+                            "value": false
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 19
+                },
+                {
+                    "name": "peak_report",
+                    "display_name": "Peak Report",
+                    "measure_type": "ReportingMeasure",
+                    "measure_definition_class_name": "PeakReport",
+                    "measure_definition_directory": "./measures/peak_report",
+                    "measure_definition_directory_local": "C:\\Users\\jlorrey\\src\\sandbox\\PAT\\Controls_No_Faults\\measures\\peak_report",
+                    "measure_definition_display_name": "Peak Report",
+                    "measure_definition_name": "peak_report",
+                    "measure_definition_name_xml": null,
+                    "measure_definition_uuid": "c3008af3-e012-4800-8908-f23a3d23e5a1",
+                    "measure_definition_version_uuid": "b6b4a4a3-368f-44fe-ac07-624e50289ba4",
+                    "uuid": "c3008af3-e012-4800-8908-f23a3d23e5a1",
+                    "version_uuid": "b6b4a4a3-368f-44fe-ac07-624e50289ba4",
+                    "description": "foo",
+                    "taxonomy": "Reporting.QAQC",
+                    "arguments": [
+                        {
+                            "display_name": "Coincident Peak Demand and Peak energy",
+                            "display_name_short": "coincident_section",
+                            "name": "coincident_section",
+                            "value_type": "boolean",
+                            "default_value": true,
+                            "value": true
+                        }
+                    ],
+                    "variables": [],
+                    "workflow_index": 20
+                }
+            ],
+            "algorithm": {
+                "objective_functions": []
+            },
+            "analysis_type": null,
+            "design_alternatives": [
+                {
+                    "name": "Baseline",
+                    "options": [
+                        {
+                            "measure_name": "replace_weather_file",
+                            "workflow_index": 0,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Sets the EPW weather file (EPW), supplemental data specific to the location, and daylight saving time start/end dates."
+                        },
+                        {
+                            "measure_name": "create_bar_from_space_type_ratios",
+                            "workflow_index": 1,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Creates one or more rectangular building elements based on space type ratios of selected mix of building types, along with user arguments that describe the desired geometry characteristics."
+                        },
+                        {
+                            "measure_name": "create_typical_building_from_model",
+                            "workflow_index": 2,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Takes a model with space and stub space types, and assigns constructions, schedules, internal loads, hvac, and other loads such as exterior lights and service water heating."
+                        },
+                        {
+                            "measure_name": "add_hourly_meters",
+                            "workflow_index": 3,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure adds hourly meters for the most common energy use types."
+                        },
+                        {
+                            "measure_name": "increase_insulation_r_value_for_exterior_walls",
+                            "workflow_index": 4,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the R-Value of exterior wall insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the exterior walls. Costs for a construction can be adjusted"
+                        },
+                        {
+                            "measure_name": "increase_insulation_r_value_for_roofs",
+                            "workflow_index": 5,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the R-Value of roof insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the roof."
+                        },
+                        {
+                            "measure_name": "set_lighting_loads_by_lpd",
+                            "workflow_index": 6,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the lighting power density (W/ft^2) in the to a specified value for all spaces that have lights. This can be applied to the entire building or a specific space type. Cost can be added per floor area"
+                        },
+                        {
+                            "measure_name": "ashrae_9012010_daylighting_control_with_run_switch",
+                            "workflow_index": 7,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure adds automatic daylighting controls for Primary Sidelighted Areas and Toplighting according to ASHRAE 90.1-2010 sections 9.4.1.4 and 9.4.1.5."
+                        },
+                        {
+                            "measure_name": "controls_hwst_reset",
+                            "workflow_index": 8,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) adds a set point reset to all hot water loops present in the OpenStudio model. The hot water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) lowers from 60F (15.6C) down to 20F (-6.67C), the hot water supply temperature set point will increase from 160F (71.1C) up to 180F (82.2C).  This sequence provides a 20F (11.1C) change in the Hot Water Set Point, over a 40F (22.2C) temperature change in the OAT. This sequence assumes all boilers serving the hot water plant loops are non-condensing and should not receive return water below 140F (60.0C)."
+                        },
+                        {
+                            "measure_name": "controls_hwpdp_reset",
+                            "workflow_index": 9,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary hot water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional hot water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary hot water pump motor for longer periods of time at lower energy consumptive levels."
+                        },
+                        {
+                            "measure_name": "controls_chwst_reset",
+                            "workflow_index": 10,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) adds a set point reset to all chilled water loops present in the OpenStudio model. The chilled water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) rises from 60F (15.6C) up to 100F (37.8C), the chilled water supply temperature set point will decrease from 55F (12.8C) down to 45F (7.22C).  This sequence provides a 10F (15.6C) change in the Chilled Water Set Point, over a 40F (22.2C) temperature change in the OAT. "
+                        },
+                        {
+                            "measure_name": "controls_chwpdp_reset",
+                            "workflow_index": 11,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary chilled water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional chilled water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary chilled water pump motor for longer periods of time at lower energy consumptive levels."
+                        },
+                        {
+                            "measure_name": "controls_satoa_reset",
+                            "workflow_index": 12,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Some buildings use a constant supply-air (also referred to discharge-air) temperature set point of 55F. When a building's supply fan system is operational, the supply-air temperature set point value should be automatically adjusting to internal/external conditions that will allow the supply fan to operate more efficiently. The simplest way to implement this strategy is to raise supply-air temperature when the outdoor air is cold and the building is less likely to need cooling.  Supplying this warmer air to the  terminals decreases the amount of reheat necessary at the terminal, saving heating energy."
+                        },
+                        {
+                            "measure_name": "controls_fanpressure_reset",
+                            "workflow_index": 13,
+                            "name": "controls_fanpressure_reset",
+                            "description": "This measure changes the variable speed fan coefficients to model fan systems with different characteristics and static pressure reset controls.\n\nCopies the NREL measure Change Variable Volume Fan Coefficients"
+                        },
+                        {
+                            "measure_name": "enable_economizer_control_with_diffs",
+                            "workflow_index": 14,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: There is currently not a functioning air side economizer enabled in the building. Air side economizers use cold outside air to either assist the mechanical cooling system, or if the air is cold enough, provide all of the cooling for a facility.\n\n\n\n\n\n\n\n\n\nIn order for an air side economizer to function properly, all of the outside air damper actuators need to have modulating capabilities. In addition to that, new control sequences need to be written into the building automation control system to enable the air-side economizer when outside air temperatures are below 60?F-65?F and the interior space temperatures are calling for cooling.\n\n\n\n\n\n\n\n\n\nThe building would realize the following operational benefits by utilizing an air-side economizer:\n\n\n\n\n    -Reduction in cooling system energy use\n\n\n\n\n    -Reduction in mechanical cooling system run time\n\n\n\n\n    -Possible improvement in indoor air quality\n\n\n\n\n  "
+                        },
+                        {
+                            "measure_name": "enable_demand_controlled_ventilation",
+                            "workflow_index": 15,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: The facility currently does not have a demand controlled ventilation system or CO2 sensors in the air delivery system. Outside air is introduced and conditioned at a fixed rate based on the maximum design. Since the building occupancy fluctuates and is often less than the maximum design occupancy, it is being over-ventilated and consuming more energy than necessary. The building CO2 level is closely related to the occupancy. The typical outside CO2 level is relatively low concentration, around 400 to 500 ppm, and is used to dilute the higher indoor CO2 levels.\rDemand controlled ventilation could be implemented by deploying CO2 sensors located in each AHU return air duct and in densely occupied spaces, such as conference rooms. Implementation of this ECM will require:\r-Rebalance the open/closed outside air dampers to a lower minimum ventilation rate.\r-Program demand ventilation controls into each AHU, controlling modulating dampers in mixed air AHUs and VFDs in outside air units. Ventilation will be generally controlled from return air sensors, but will be increased as needed based on densely occupied space sensors.\r-Commission the project."
+                        },
+                        {
+                            "measure_name": "customize_prototype_tstats",
+                            "workflow_index": 16,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: A measure to inspect and edit the prototypical Tstat schedules for the OS Control Tool at VEIC"
+                        },
+                        {
+                            "measure_name": "coincident_peak_loadshape",
+                            "workflow_index": 17,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory."
+                        },
+                        {
+                            "measure_name": "energy_savings_loadshape",
+                            "workflow_index": 18,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory."
+                        },
+                        {
+                            "measure_name": "openstudio_results",
+                            "workflow_index": 19,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+                        },
+                        {
+                            "measure_name": "peak_report",
+                            "workflow_index": 20,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: foo"
+                        }
+                    ]
+                },
+                {
+                    "name": "Measure: ashrae_9012010_daylighting_control_with_run_switch",
+                    "options": [
+                        {
+                            "measure_name": "replace_weather_file",
+                            "workflow_index": 0,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Sets the EPW weather file (EPW), supplemental data specific to the location, and daylight saving time start/end dates."
+                        },
+                        {
+                            "measure_name": "create_bar_from_space_type_ratios",
+                            "workflow_index": 1,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Creates one or more rectangular building elements based on space type ratios of selected mix of building types, along with user arguments that describe the desired geometry characteristics."
+                        },
+                        {
+                            "measure_name": "create_typical_building_from_model",
+                            "workflow_index": 2,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Takes a model with space and stub space types, and assigns constructions, schedules, internal loads, hvac, and other loads such as exterior lights and service water heating."
+                        },
+                        {
+                            "measure_name": "add_hourly_meters",
+                            "workflow_index": 3,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure adds hourly meters for the most common energy use types."
+                        },
+                        {
+                            "measure_name": "increase_insulation_r_value_for_exterior_walls",
+                            "workflow_index": 4,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the R-Value of exterior wall insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the exterior walls. Costs for a construction can be adjusted"
+                        },
+                        {
+                            "measure_name": "increase_insulation_r_value_for_roofs",
+                            "workflow_index": 5,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the R-Value of roof insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the roof."
+                        },
+                        {
+                            "measure_name": "set_lighting_loads_by_lpd",
+                            "workflow_index": 6,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: Set the lighting power density (W/ft^2) in the to a specified value for all spaces that have lights. This can be applied to the entire building or a specific space type. Cost can be added per floor area"
+                        },
+                        {
+                            "measure_name": "ashrae_9012010_daylighting_control_with_run_switch",
+                            "workflow_index": 7,
+                            "name": "Proposed",
+                            "description": "Option 2 Description: This measure adds automatic daylighting controls for Primary Sidelighted Areas and Toplighting according to ASHRAE 90.1-2010 sections 9.4.1.4 and 9.4.1.5."
+                        },
+                        {
+                            "measure_name": "controls_hwst_reset",
+                            "workflow_index": 8,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) adds a set point reset to all hot water loops present in the OpenStudio model. The hot water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) lowers from 60F (15.6C) down to 20F (-6.67C), the hot water supply temperature set point will increase from 160F (71.1C) up to 180F (82.2C).  This sequence provides a 20F (11.1C) change in the Hot Water Set Point, over a 40F (22.2C) temperature change in the OAT. This sequence assumes all boilers serving the hot water plant loops are non-condensing and should not receive return water below 140F (60.0C)."
+                        },
+                        {
+                            "measure_name": "controls_hwpdp_reset",
+                            "workflow_index": 9,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary hot water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional hot water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary hot water pump motor for longer periods of time at lower energy consumptive levels."
+                        },
+                        {
+                            "measure_name": "controls_chwst_reset",
+                            "workflow_index": 10,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) adds a set point reset to all chilled water loops present in the OpenStudio model. The chilled water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) rises from 60F (15.6C) up to 100F (37.8C), the chilled water supply temperature set point will decrease from 55F (12.8C) down to 45F (7.22C).  This sequence provides a 10F (15.6C) change in the Chilled Water Set Point, over a 40F (22.2C) temperature change in the OAT. "
+                        },
+                        {
+                            "measure_name": "controls_chwpdp_reset",
+                            "workflow_index": 11,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary chilled water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional chilled water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary chilled water pump motor for longer periods of time at lower energy consumptive levels."
+                        },
+                        {
+                            "measure_name": "controls_satoa_reset",
+                            "workflow_index": 12,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Some buildings use a constant supply-air (also referred to discharge-air) temperature set point of 55F. When a building's supply fan system is operational, the supply-air temperature set point value should be automatically adjusting to internal/external conditions that will allow the supply fan to operate more efficiently. The simplest way to implement this strategy is to raise supply-air temperature when the outdoor air is cold and the building is less likely to need cooling.  Supplying this warmer air to the  terminals decreases the amount of reheat necessary at the terminal, saving heating energy."
+                        },
+                        {
+                            "measure_name": "controls_fanpressure_reset",
+                            "workflow_index": 13,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure changes the variable speed fan coefficients to model fan systems with different characteristics and static pressure reset controls.\n\nCopies the NREL measure Change Variable Volume Fan Coefficients"
+                        },
+                        {
+                            "measure_name": "enable_economizer_control_with_diffs",
+                            "workflow_index": 14,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: There is currently not a functioning air side economizer enabled in the building. Air side economizers use cold outside air to either assist the mechanical cooling system, or if the air is cold enough, provide all of the cooling for a facility.\n\n\n\n\n\n\n\n\n\nIn order for an air side economizer to function properly, all of the outside air damper actuators need to have modulating capabilities. In addition to that, new control sequences need to be written into the building automation control system to enable the air-side economizer when outside air temperatures are below 60?F-65?F and the interior space temperatures are calling for cooling.\n\n\n\n\n\n\n\n\n\nThe building would realize the following operational benefits by utilizing an air-side economizer:\n\n\n\n\n    -Reduction in cooling system energy use\n\n\n\n\n    -Reduction in mechanical cooling system run time\n\n\n\n\n    -Possible improvement in indoor air quality\n\n\n\n\n  "
+                        },
+                        {
+                            "measure_name": "enable_demand_controlled_ventilation",
+                            "workflow_index": 15,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: The facility currently does not have a demand controlled ventilation system or CO2 sensors in the air delivery system. Outside air is introduced and conditioned at a fixed rate based on the maximum design. Since the building occupancy fluctuates and is often less than the maximum design occupancy, it is being over-ventilated and consuming more energy than necessary. The building CO2 level is closely related to the occupancy. The typical outside CO2 level is relatively low concentration, around 400 to 500 ppm, and is used to dilute the higher indoor CO2 levels.\rDemand controlled ventilation could be implemented by deploying CO2 sensors located in each AHU return air duct and in densely occupied spaces, such as conference rooms. Implementation of this ECM will require:\r-Rebalance the open/closed outside air dampers to a lower minimum ventilation rate.\r-Program demand ventilation controls into each AHU, controlling modulating dampers in mixed air AHUs and VFDs in outside air units. Ventilation will be generally controlled from return air sensors, but will be increased as needed based on densely occupied space sensors.\r-Commission the project."
+                        },
+                        {
+                            "measure_name": "customize_prototype_tstats",
+                            "workflow_index": 16,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: A measure to inspect and edit the prototypical Tstat schedules for the OS Control Tool at VEIC"
+                        },
+                        {
+                            "measure_name": "coincident_peak_loadshape",
+                            "workflow_index": 17,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory."
+                        },
+                        {
+                            "measure_name": "energy_savings_loadshape",
+                            "workflow_index": 18,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory."
+                        },
+                        {
+                            "measure_name": "openstudio_results",
+                            "workflow_index": 19,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+                        },
+                        {
+                            "measure_name": "peak_report",
+                            "workflow_index": 20,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: foo"
+                        }
+                    ]
+                },
+                {
+                    "name": "Measure: customize_prototype_tstats",
+                    "options": [
+                        {
+                            "measure_name": "replace_weather_file",
+                            "workflow_index": 0,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Sets the EPW weather file (EPW), supplemental data specific to the location, and daylight saving time start/end dates."
+                        },
+                        {
+                            "measure_name": "create_bar_from_space_type_ratios",
+                            "workflow_index": 1,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Creates one or more rectangular building elements based on space type ratios of selected mix of building types, along with user arguments that describe the desired geometry characteristics."
+                        },
+                        {
+                            "measure_name": "create_typical_building_from_model",
+                            "workflow_index": 2,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Takes a model with space and stub space types, and assigns constructions, schedules, internal loads, hvac, and other loads such as exterior lights and service water heating."
+                        },
+                        {
+                            "measure_name": "add_hourly_meters",
+                            "workflow_index": 3,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure adds hourly meters for the most common energy use types."
+                        },
+                        {
+                            "measure_name": "increase_insulation_r_value_for_exterior_walls",
+                            "workflow_index": 4,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the R-Value of exterior wall insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the exterior walls. Costs for a construction can be adjusted"
+                        },
+                        {
+                            "measure_name": "increase_insulation_r_value_for_roofs",
+                            "workflow_index": 5,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: Set the R-Value of roof insulation to a specified value.  Higher R-Values provide better insulation, lowering heat loss and heat gain through the roof."
+                        },
+                        {
+                            "measure_name": "set_lighting_loads_by_lpd",
+                            "workflow_index": 6,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: Set the lighting power density (W/ft^2) in the to a specified value for all spaces that have lights. This can be applied to the entire building or a specific space type. Cost can be added per floor area"
+                        },
+                        {
+                            "measure_name": "ashrae_9012010_daylighting_control_with_run_switch",
+                            "workflow_index": 7,
+                            "name": "Proposed",
+                            "description": "Option 2 Description: This measure adds automatic daylighting controls for Primary Sidelighted Areas and Toplighting according to ASHRAE 90.1-2010 sections 9.4.1.4 and 9.4.1.5."
+                        },
+                        {
+                            "measure_name": "controls_hwst_reset",
+                            "workflow_index": 8,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: This energy efficiency measure (EEM) adds a set point reset to all hot water loops present in the OpenStudio model. The hot water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) lowers from 60F (15.6C) down to 20F (-6.67C), the hot water supply temperature set point will increase from 160F (71.1C) up to 180F (82.2C).  This sequence provides a 20F (11.1C) change in the Hot Water Set Point, over a 40F (22.2C) temperature change in the OAT. This sequence assumes all boilers serving the hot water plant loops are non-condensing and should not receive return water below 140F (60.0C)."
+                        },
+                        {
+                            "measure_name": "controls_hwpdp_reset",
+                            "workflow_index": 9,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary hot water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional hot water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary hot water pump motor for longer periods of time at lower energy consumptive levels."
+                        },
+                        {
+                            "measure_name": "controls_chwst_reset",
+                            "workflow_index": 10,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: This energy efficiency measure (EEM) adds a set point reset to all chilled water loops present in the OpenStudio model. The chilled water supply temperature reset will be based on outdoor-air temperature (OAT). The specific sequence is that as outdoor-air temperature (OAT) rises from 60F (15.6C) up to 100F (37.8C), the chilled water supply temperature set point will decrease from 55F (12.8C) down to 45F (7.22C).  This sequence provides a 10F (15.6C) change in the Chilled Water Set Point, over a 40F (22.2C) temperature change in the OAT. "
+                        },
+                        {
+                            "measure_name": "controls_chwpdp_reset",
+                            "workflow_index": 11,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: This energy efficiency measure (EEM) configures all variable or constant speed pumps identified as secondary chilled water loop pumps. Identified pumps are then either replaced (in the case of a constant speed pump) or reconfigured (in the case of a variable speed pump) to operate as a variable speed pump with an aggressive Part Load Performance Curve representing operation of a functional chilled water pump differential pressure reset control with a wide range of deviation in zone valve positions. Energy savings will be generated by operating the secondary chilled water pump motor for longer periods of time at lower energy consumptive levels."
+                        },
+                        {
+                            "measure_name": "controls_satoa_reset",
+                            "workflow_index": 12,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: Some buildings use a constant supply-air (also referred to discharge-air) temperature set point of 55F. When a building's supply fan system is operational, the supply-air temperature set point value should be automatically adjusting to internal/external conditions that will allow the supply fan to operate more efficiently. The simplest way to implement this strategy is to raise supply-air temperature when the outdoor air is cold and the building is less likely to need cooling.  Supplying this warmer air to the  terminals decreases the amount of reheat necessary at the terminal, saving heating energy."
+                        },
+                        {
+                            "measure_name": "controls_fanpressure_reset",
+                            "workflow_index": 13,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: This measure changes the variable speed fan coefficients to model fan systems with different characteristics and static pressure reset controls.\n\nCopies the NREL measure Change Variable Volume Fan Coefficients"
+                        },
+                        {
+                            "measure_name": "enable_economizer_control_with_diffs",
+                            "workflow_index": 14,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: There is currently not a functioning air side economizer enabled in the building. Air side economizers use cold outside air to either assist the mechanical cooling system, or if the air is cold enough, provide all of the cooling for a facility.\n\n\n\n\n\n\n\n\n\nIn order for an air side economizer to function properly, all of the outside air damper actuators need to have modulating capabilities. In addition to that, new control sequences need to be written into the building automation control system to enable the air-side economizer when outside air temperatures are below 60?F-65?F and the interior space temperatures are calling for cooling.\n\n\n\n\n\n\n\n\n\nThe building would realize the following operational benefits by utilizing an air-side economizer:\n\n\n\n\n    -Reduction in cooling system energy use\n\n\n\n\n    -Reduction in mechanical cooling system run time\n\n\n\n\n    -Possible improvement in indoor air quality\n\n\n\n\n  "
+                        },
+                        {
+                            "measure_name": "enable_demand_controlled_ventilation",
+                            "workflow_index": 15,
+                            "name": "Baseline",
+                            "description": "Option 2 Description: The facility currently does not have a demand controlled ventilation system or CO2 sensors in the air delivery system. Outside air is introduced and conditioned at a fixed rate based on the maximum design. Since the building occupancy fluctuates and is often less than the maximum design occupancy, it is being over-ventilated and consuming more energy than necessary. The building CO2 level is closely related to the occupancy. The typical outside CO2 level is relatively low concentration, around 400 to 500 ppm, and is used to dilute the higher indoor CO2 levels.\rDemand controlled ventilation could be implemented by deploying CO2 sensors located in each AHU return air duct and in densely occupied spaces, such as conference rooms. Implementation of this ECM will require:\r-Rebalance the open/closed outside air dampers to a lower minimum ventilation rate.\r-Program demand ventilation controls into each AHU, controlling modulating dampers in mixed air AHUs and VFDs in outside air units. Ventilation will be generally controlled from return air sensors, but will be increased as needed based on densely occupied space sensors.\r-Commission the project."
+                        },
+                        {
+                            "measure_name": "customize_prototype_tstats",
+                            "workflow_index": 16,
+                            "name": "Proposed",
+                            "description": "Option 2 Description: A measure to inspect and edit the prototypical Tstat schedules for the OS Control Tool at VEIC"
+                        },
+                        {
+                            "measure_name": "coincident_peak_loadshape",
+                            "workflow_index": 17,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory."
+                        },
+                        {
+                            "measure_name": "energy_savings_loadshape",
+                            "workflow_index": 18,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates tariff objets from pre-poulated IDF files in the measures \"resoruces\" directory."
+                        },
+                        {
+                            "measure_name": "openstudio_results",
+                            "workflow_index": 19,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: This measure creates high level tables and charts pulling both from model inputs and EnergyPlus results. It has building level information as well as detail on space types, thermal zones, HVAC systems, envelope characteristics, and economics. Click the heading above a chart to view a table of the chart data."
+                        },
+                        {
+                            "measure_name": "peak_report",
+                            "workflow_index": 20,
+                            "name": "Baseline",
+                            "description": "Option 1 Description: foo"
+                        }
+                    ]
+                }
+            ]
+        },
+        "seed": {
+            "file_type": "OSM",
+            "path": "./seeds/SeedModel.osm"
+        },
+        "weather_file": {
+            "file_type": "EPW",
+            "path": "./weather/VT_BURLINGTON-IAP_726170_TY3A.epw"
+        },
+        "file_format_version": 1,
+        "cli_debug": "",
+        "cli_verbose": "",
+        "download_reports": true,
+        "download_osw": true,
+        "download_osm": true,
+        "download_zip": true,
+        "run_workflow_timeout": 28800,
+        "upload_results_timeout": 28800,
+        "initialize_worker_timeout": 28800,
+        "server_scripts": {
+            "server_initialization": "./scripts/server_initialization/initialize.sh",
+            "server_finalization": "./scripts/server_finalization/finalize.sh",
+            "worker_initialization": "./scripts/worker_initialization/initialize.sh",
+            "worker_finalization": "./scripts/worker_finalization/finalize.sh"
+        }
+    }
+}
